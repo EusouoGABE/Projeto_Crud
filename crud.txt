@@ -1,0 +1,20 @@
+create database crud
+
+create table carro
+(
+placa  varchar(8) not null,
+modelo  varchar(30),
+ano int(4),
+cor  varchar(30),
+constraint pk_id_placa primary key (placa)
+)
+
+create table registro
+(
+placa varchar(8) not null,
+entrada datetime not null,
+saida   datetime,
+valor decimal,
+constraint pk_id_entrada primary key (entrada),
+constraint fk_id_placa foreign key (placa) references carro(placa)
+);
